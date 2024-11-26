@@ -1,4 +1,4 @@
-;;; minizinc-ts-mode.el --- Major mode for the MiniZinc constraint modeling language -*- lexical-binding: t; -*-
+;;; minizinc-ts-mode.el --- Major mode for the MiniZinc constraint modeling language using tree-sitter -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (C) 2024 Ajai Khatri Nelson
 ;;
@@ -26,7 +26,7 @@
 ;;
 ;;; Commentary:
 ;;
-;; Major mode for the MiniZinc constraint modeling language.
+;; Major mode for the MiniZinc constraint modeling language using tree-sitter.
 ;;
 ;;; Code:
 
