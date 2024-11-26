@@ -1,0 +1,83 @@
+#+title: minizinc-ts-mode
+#+subtitle: A tree-sitter-based major mode for MiniZinc
+
+A tree-sitter-based major mode for the [[https://www.minizinc.org/][MiniZinc]] constraint modeling language.
+
+* Installation
+=minizinc-ts-mode= is not yet on MELPA.
+
+** Vanilla Emacs
+You can manually clone this repository and add it to your =load-path=.
+
+#+begin_src emacs-lisp
+(add-to-list 'load-path "/path/to/minizinc-ts-mode/")
+
+(use-package minizinc-ts-mode
+  :mode ("\\.mzn\\'" . minizinc-ts-mode)
+  :config
+  ;; any configuration goes here
+  )
+#+end_src
+
+Then, run ~M-x minizinc-ts-install-treesit-grammar~ (or install the MiniZinc tree-sitter grammar another way).
+
+** Using straight
+
+#+begin_src emacs-lisp
+(straight-use-package '(minizinc-ts-mode :type git :host github :repo "AjaiKN/minizinc-ts-mode"))
+#+end_src
+
+Then, run ~M-x minizinc-ts-install-treesit-grammar~ (or install the MiniZinc tree-sitter grammar another way).
+
+** In Doom Emacs
+
+Add the following to ~packages.el~ (use ~doom/find-file-in-private-config~ typically bound to ~SPC f p~):
+
+#+begin_src emacs-lisp :noeval
+(package! minizinc-ts-mode :recipe (:host gitlab :repo "AjaiKN/minizinc-ts-mode"))
+#+end_src
+
+Then, run ~M-x minizinc-ts-install-treesit-grammar~ (or install the MiniZinc tree-sitter grammar another way).
+
+*** Example configuration for Doom Emacs (optional)
+
+Add the following to ~config.el~ (use ~doom/find-file-in-private-config~ typically bound to ~SPC f p~):
+
+#+begin_src emacs-lisp :noeval
+(use-package! minizinc-ts-mode
+  :defer t
+  :config
+  (map! :map minizinc-ts-mode-map
+        :localleader
+        "s" #'minizinc-ts-solve)
+
+  (after! dtrt-indent
+   (add-to-list 'dtrt-indent-hook-mapping-list '(minizinc-ts-mode default minizinc-ts-indent-offset)))
+  (after! editorconfig
+    (add-to-list 'editorconfig-indentation-alist '(minizinc-ts-mode minizinc-ts-indent-offset)))
+
+  ;; this will only take effect if you have :ui ligatures enabled
+  (set-ligatures! 'minizinc-ts-mode
+    :and       "/\\"
+    :or        "\\/"
+    :not       "not"
+    :in        "in"
+    :some      "exists"
+    :for       "forall"
+    :union     "union"
+    :intersect "intersect"
+    :true      "true"
+    :false     "false"
+    :int       "int"
+    :float     "float"
+    :str       "string"
+    :bool      "bool"
+    :list      "list"
+    :tuple     "tuple"))
+#+end_src
+
+* Usage
+Use =C-c C-s= (or =M-x minizinc-ts-solve=) to tell minizinc to solve the current file.
+By default, it'll prompt to ask you which solver to use; to change that behavior, customize =minizinc-ts-solver=.
+* Related/alternative emacs packages
+- [[https://github.com/m00nlight/minizinc-mode][https://github.com/m00nlight/minizinc-mode]]
