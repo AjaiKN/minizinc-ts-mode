@@ -1,30 +1,25 @@
 #+title: minizinc-ts-mode
 #+subtitle: Emacs tree-sitter-based major mode for MiniZinc
 
+[[https://melpa.org/#/minizinc-ts-mode][file:https://melpa.org/packages/minizinc-ts-mode-badge.svg]]
+
 An Emacs tree-sitter-based major mode for the [[https://www.minizinc.org/][MiniZinc]] constraint modeling language.
 
 * Installation
-=minizinc-ts-mode= is not yet on MELPA.
+=minizinc-ts-mode= is [[https://melpa.org/#/minizinc-ts-mode][available on MELPA]].
 
 ** Vanilla Emacs
-You can manually clone this repository and add it to your =load-path=.
 
-#+begin_src emacs-lisp
-(add-to-list 'load-path "/path/to/minizinc-ts-mode/")
+If you haven't done so already, first [[https://melpa.org/#/getting-started][enable installation of packages from MELPA]].
 
-(use-package minizinc-ts-mode
-  :mode ("\\.mzn\\'" . minizinc-ts-mode)
-  :config
-  ;; any configuration goes here
-  )
-#+end_src
+Then, run ~M-x package-install RET minizinc-ts-mode RET~.
 
-Then, run ~M-x minizinc-ts-install-treesit-grammar~ (or install the MiniZinc tree-sitter grammar another way).
+Finally, run ~M-x minizinc-ts-install-treesit-grammar~ (or install the MiniZinc tree-sitter grammar another way).
 
 ** Using straight
 
 #+begin_src emacs-lisp
-(straight-use-package '(minizinc-ts-mode :type git :host github :repo "AjaiKN/minizinc-ts-mode"))
+(straight-use-package 'minizinc-ts-mode)
 #+end_src
 
 Then, run ~M-x minizinc-ts-install-treesit-grammar~ (or install the MiniZinc tree-sitter grammar another way).
@@ -34,7 +29,7 @@ Then, run ~M-x minizinc-ts-install-treesit-grammar~ (or install the MiniZinc tre
 Add the following to ~packages.el~ (use ~doom/find-file-in-private-config~ typically bound to ~SPC f p~):
 
 #+begin_src emacs-lisp :noeval
-(package! minizinc-ts-mode :recipe (:host gitlab :repo "AjaiKN/minizinc-ts-mode"))
+(package! minizinc-ts-mode)
 #+end_src
 
 Then, run ~M-x minizinc-ts-install-treesit-grammar~ (or install the MiniZinc tree-sitter grammar another way).
