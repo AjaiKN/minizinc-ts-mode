@@ -88,6 +88,7 @@ run."
 (defcustom minizinc-ts-indent-offset 2
   "The basic indentation offset in `minizinc-ts-mode'."
   :type 'natnum
+  :safe #'natnump
   :group 'minizinc-ts)
 
 ;;;; CLI stuff
