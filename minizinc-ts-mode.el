@@ -185,7 +185,7 @@ solver to use. Otherwise, the solver depends on the value of
     (minizinc-ts--ts-setup)))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist (cons "\\.[mdf]zn\\'" #'minizinc-ts-mode))
+(add-to-list 'auto-mode-alist (cons "\\.[mdfo]zn\\'" #'minizinc-ts-mode))
 
 (add-to-list 'treesit-language-source-alist
              '(minizinc . ("https://github.com/shackle-rs/shackle" nil "parsers/tree-sitter-minizinc/src")))
